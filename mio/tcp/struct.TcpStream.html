@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TcpStream` struct in crate `mio`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TcpStream">
+
+    <title>mio::tcp::TcpStream - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>mio</a>::<wbr><a href='index.html'>tcp</a></p><script>window.sidebarCurrent = {name: 'TcpStream', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>mio</a>::<wbr><a href='index.html'>tcp</a>::<wbr><a class='struct' href=''>TcpStream</a><wbr><a class='stability Stable' title=''>Stable</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-37734' href='http://doc.rust-lang.org/nightly/std/net/tcp/struct.TcpStream.html?gotosrc=37734'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct TcpStream(_);</pre><div class='docblock'><p>A structure which represents a TCP stream between a local socket and a
+remote socket.</p>
+
+<p>The socket will be closed when the value is dropped.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>TcpStream</span>;
+
+{
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>stream</span> <span class='op'>=</span> <span class='ident'>TcpStream</span>::<span class='ident'>connect</span>(<span class='string'>&quot;127.0.0.1:34254&quot;</span>).<span class='ident'>unwrap</span>();
+
+    <span class='comment'>// ignore the Result</span>
+    <span class='kw'>let</span> _ <span class='op'>=</span> <span class='ident'>stream</span>.<span class='ident'>write</span>(<span class='kw-2'>&amp;</span>[<span class='number'>1</span>]);
+    <span class='kw'>let</span> _ <span class='op'>=</span> <span class='ident'>stream</span>.<span class='ident'>read</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>0</span>; <span class='number'>128</span>]); <span class='comment'>// ignore here too</span>
+} <span class='comment'>// the stream is closed here</span>
+</pre>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>impl <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.connect' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.connect' class='fnname'>connect</a>&lt;A&gt;(addr: A) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt; <span class='where'>where A: <a class='trait' href='http://doc.rust-lang.org/nightly/std/net/addr/trait.ToSocketAddrs.html' title='std::net::addr::ToSocketAddrs'>ToSocketAddrs</a></span></code></h4>
+<div class='docblock'><p>Open a TCP connection to a remote host.</p>
+
+<p><code>addr</code> is an address of the remote host. Anything which implements
+<code>ToSocketAddrs</code> trait can be supplied for the address; see this trait
+documentation for concrete examples.</p>
+</div><h4 id='method.peer_addr' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.peer_addr' class='fnname'>peer_addr</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the socket address of the remote peer of this TCP connection.</p>
+</div><h4 id='method.socket_addr' class='method'><a class='stability Deprecated' title='Deprecated: renamed to local_addr'></a><code>fn <a href='#method.socket_addr' class='fnname'>socket_addr</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the socket address of the local half of this TCP connection.</p>
+</div><h4 id='method.local_addr' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.local_addr' class='fnname'>local_addr</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the socket address of the local half of this TCP connection.</p>
+</div><h4 id='method.shutdown' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.shutdown' class='fnname'>shutdown</a>(&amp;self, how: <a class='enum' href='http://doc.rust-lang.org/nightly/std/net/enum.Shutdown.html' title='std::net::Shutdown'>Shutdown</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Shut down the read, write, or both halves of this connection.</p>
+
+<p>This function will cause all pending and future I/O on the specified
+portions to return immediately with an appropriate value (see the
+documentation of <code>Shutdown</code>).</p>
+</div><h4 id='method.try_clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.try_clone' class='fnname'>try_clone</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new independently owned handle to the underlying socket.</p>
+
+<p>The returned <code>TcpStream</code> is a reference to the same stream that this
+object references. Both handles will read and write the same stream of
+data, and options set on one stream will be propagated to the other
+stream.</p>
+</div><h4 id='method.set_nodelay' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_nodelay' class='fnname'>set_nodelay</a>(&amp;self, nodelay: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the nodelay flag on this connection to the boolean specified</p>
+</div><h4 id='method.set_keepalive' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_keepalive' class='fnname'>set_keepalive</a>(&amp;self, seconds: <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the keepalive timeout to the timeout specified.</p>
+
+<p>If the value specified is <code>None</code>, then the keepalive flag is cleared on
+this connection. Otherwise, the keepalive timeout will be set to the
+specified time, in seconds.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='../../std/io/trait.Read.html' title='std::io::Read'>Read</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.read' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.read' class='fnname'>read</a>(&amp;mut self, buf: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.read_to_end' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.read_to_end' class='fnname'>read_to_end</a>(&amp;mut self, buf: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.read_to_string' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.read_to_string' class='fnname'>read_to_string</a>(&amp;mut self, buf: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.by_ref' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.by_ref' class='fnname'>by_ref</a>(&amp;mut self) -&gt; &amp;mut Self</code></h4>
+<h4 id='method.bytes' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.bytes' class='fnname'>bytes</a>(self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Bytes.html' title='std::io::Bytes'>Bytes</a>&lt;Self&gt;</code></h4>
+<h4 id='method.chars' class='tymethod'><a class='stability Unstable' title='Unstable: the semantics of a partial read/write of where errors happen is currently unclear and may change'></a><code>fn <a href='#tymethod.chars' class='fnname'>chars</a>(self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Chars.html' title='std::io::Chars'>Chars</a>&lt;Self&gt;</code></h4>
+<h4 id='method.chain' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.chain' class='fnname'>chain</a>&lt;R&gt;(self, next: R) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Chain.html' title='std::io::Chain'>Chain</a>&lt;Self, R&gt; <span class='where'>where R: <a class='trait' href='../../std/io/trait.Read.html' title='std::io::Read'>Read</a></span></code></h4>
+<h4 id='method.take' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.take' class='fnname'>take</a>(self, limit: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Take.html' title='std::io::Take'>Take</a>&lt;Self&gt;</code></h4>
+<h4 id='method.tee' class='tymethod'><a class='stability Unstable' title='Unstable: the semantics of a partial read/write of where errors happen is currently unclear and may change'></a><code>fn <a href='#tymethod.tee' class='fnname'>tee</a>&lt;W&gt;(self, out: W) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Tee.html' title='std::io::Tee'>Tee</a>&lt;Self, W&gt; <span class='where'>where W: <a class='trait' href='../../std/io/trait.Write.html' title='std::io::Write'>Write</a></span></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='../../std/io/trait.Write.html' title='std::io::Write'>Write</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.write' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.write' class='fnname'>write</a>(&amp;mut self, buf: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.flush' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.flush' class='fnname'>flush</a>(&amp;mut self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.write_all' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.write_all' class='fnname'>write_all</a>(&amp;mut self, buf: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.write_fmt' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.write_fmt' class='fnname'>write_fmt</a>(&amp;mut self, fmt: <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Arguments.html' title='core::fmt::Arguments'>Arguments</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.by_ref' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.by_ref' class='fnname'>by_ref</a>(&amp;mut self) -&gt; &amp;mut Self</code></h4>
+<h4 id='method.broadcast' class='tymethod'><a class='stability Unstable' title='Unstable: the semantics of a partial read/write of where errors happen is currently unclear and may change'></a><code>fn <a href='#tymethod.broadcast' class='fnname'>broadcast</a>&lt;W&gt;(self, other: W) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/std/io/struct.Broadcast.html' title='std::io::Broadcast'>Broadcast</a>&lt;Self, W&gt; <span class='where'>where W: <a class='trait' href='../../std/io/trait.Write.html' title='std::io::Write'>Write</a></span></code></h4>
+</div><h3 class='impl'><a class='stability Unstable' title='Unstable: may want a slightly different organization or a more general file descriptor primitive'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><a class='stability Unstable' title='Unstable: may want a slightly different organization or a more general file descriptor primitive'></a><code>fn <a href='#method.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.FromFd.html' title='mio::FromFd'>FromFd</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.from_fd' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_fd' class='fnname'>from_fd</a>(fd: <a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.Fd.html' title='std::sys::ext::io::Fd'>Fd</a>) -&gt; <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Evented.html' title='mio::Evented'>Evented</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Socket.html' title='mio::Socket'>Socket</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.linger' class='fnname'>linger</a>(&amp;self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
+<h4 id='method.set_linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_linger' class='fnname'>set_linger</a>(&amp;self, dur_s: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseaddr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseaddr' class='fnname'>set_reuseaddr</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseport' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseport' class='fnname'>set_reuseport</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_tcp_nodelay' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_read_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_read_timeout_ms' class='fnname'>set_read_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_write_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_write_timeout_ms' class='fnname'>set_write_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.FromFd.html' title='mio::FromFd'>FromFd</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.from_fd' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_fd' class='fnname'>from_fd</a>(fd: <a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.Fd.html' title='std::sys::ext::io::Fd'>Fd</a>) -&gt; <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Evented.html' title='mio::Evented'>Evented</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Socket.html' title='mio::Socket'>Socket</a> for <a class='struct' href='../../mio/tcp/struct.TcpStream.html' title='mio::tcp::TcpStream'>TcpStream</a></code></h3><div class='impl-items'><h4 id='method.linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.linger' class='fnname'>linger</a>(&amp;self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
+<h4 id='method.set_linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_linger' class='fnname'>set_linger</a>(&amp;self, dur_s: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseaddr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseaddr' class='fnname'>set_reuseaddr</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseport' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseport' class='fnname'>set_reuseport</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_tcp_nodelay' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_read_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_read_timeout_ms' class='fnname'>set_read_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_write_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_write_timeout_ms' class='fnname'>set_write_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "mio";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

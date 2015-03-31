@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Errno` enum in crate `nix`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Errno">
+
+    <title>nix::errno::Errno - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>nix</a>::<wbr><a href='index.html'>errno</a></p><script>window.sidebarCurrent = {name: 'Errno', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>nix</a>::<wbr><a href='index.html'>errno</a>::<wbr><a class='enum' href=''>Errno</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-329' href='../../src/nix/errno.rs.html#443-579'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Errno {
+    UnknownErrno,
+    EPERM,
+    ENOENT,
+    ESRCH,
+    EINTR,
+    EIO,
+    ENXIO,
+    E2BIG,
+    ENOEXEC,
+    EBADF,
+    ECHILD,
+    EAGAIN,
+    ENOMEM,
+    EACCES,
+    EFAULT,
+    ENOTBLK,
+    EBUSY,
+    EEXIST,
+    EXDEV,
+    ENODEV,
+    ENOTDIR,
+    EISDIR,
+    EINVAL,
+    ENFILE,
+    EMFILE,
+    ENOTTY,
+    ETXTBSY,
+    EFBIG,
+    ENOSPC,
+    ESPIPE,
+    EROFS,
+    EMLINK,
+    EPIPE,
+    EDOM,
+    ERANGE,
+    EDEADLK,
+    ENAMETOOLONG,
+    ENOLCK,
+    ENOSYS,
+    ENOTEMPTY,
+    ELOOP,
+    ENOMSG,
+    EIDRM,
+    ECHRNG,
+    EL2NSYNC,
+    EL3HLT,
+    EL3RST,
+    ELNRNG,
+    EUNATCH,
+    ENOCSI,
+    EL2HLT,
+    EBADE,
+    EBADR,
+    EXFULL,
+    ENOANO,
+    EBADRQC,
+    EBADSLT,
+    EBFONT,
+    ENOSTR,
+    ENODATA,
+    ETIME,
+    ENOSR,
+    ENONET,
+    ENOPKG,
+    EREMOTE,
+    ENOLINK,
+    EADV,
+    ESRMNT,
+    ECOMM,
+    EPROTO,
+    EMULTIHOP,
+    EDOTDOT,
+    EBADMSG,
+    EOVERFLOW,
+    ENOTUNIQ,
+    EBADFD,
+    EREMCHG,
+    ELIBACC,
+    ELIBBAD,
+    ELIBSCN,
+    ELIBMAX,
+    ELIBEXEC,
+    EILSEQ,
+    ERESTART,
+    ESTRPIPE,
+    EUSERS,
+    ENOTSOCK,
+    EDESTADDRREQ,
+    EMSGSIZE,
+    EPROTOTYPE,
+    ENOPROTOOPT,
+    EPROTONOSUPPORT,
+    ESOCKTNOSUPPORT,
+    EOPNOTSUPP,
+    EPFNOSUPPORT,
+    EAFNOSUPPORT,
+    EADDRINUSE,
+    EADDRNOTAVAIL,
+    ENETDOWN,
+    ENETUNREACH,
+    ENETRESET,
+    ECONNABORTED,
+    ECONNRESET,
+    ENOBUFS,
+    EISCONN,
+    ENOTCONN,
+    ESHUTDOWN,
+    ETOOMANYREFS,
+    ETIMEDOUT,
+    ECONNREFUSED,
+    EHOSTDOWN,
+    EHOSTUNREACH,
+    EALREADY,
+    EINPROGRESS,
+    ESTALE,
+    EUCLEAN,
+    ENOTNAM,
+    ENAVAIL,
+    EISNAM,
+    EREMOTEIO,
+    EDQUOT,
+    ENOMEDIUM,
+    EMEDIUMTYPE,
+    ECANCELED,
+    ENOKEY,
+    EKEYEXPIRED,
+    EKEYREVOKED,
+    EKEYREJECTED,
+    EOWNERDEAD,
+    ENOTRECOVERABLE,
+    ERFKILL,
+    EHWPOISON,
+}</pre><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.UnknownErrno'><a class='stability Unmarked' title='No stability level'></a><code>UnknownErrno</code></td><td></td></tr><tr><td id='variant.EPERM'><a class='stability Unmarked' title='No stability level'></a><code>EPERM</code></td><td></td></tr><tr><td id='variant.ENOENT'><a class='stability Unmarked' title='No stability level'></a><code>ENOENT</code></td><td></td></tr><tr><td id='variant.ESRCH'><a class='stability Unmarked' title='No stability level'></a><code>ESRCH</code></td><td></td></tr><tr><td id='variant.EINTR'><a class='stability Unmarked' title='No stability level'></a><code>EINTR</code></td><td></td></tr><tr><td id='variant.EIO'><a class='stability Unmarked' title='No stability level'></a><code>EIO</code></td><td></td></tr><tr><td id='variant.ENXIO'><a class='stability Unmarked' title='No stability level'></a><code>ENXIO</code></td><td></td></tr><tr><td id='variant.E2BIG'><a class='stability Unmarked' title='No stability level'></a><code>E2BIG</code></td><td></td></tr><tr><td id='variant.ENOEXEC'><a class='stability Unmarked' title='No stability level'></a><code>ENOEXEC</code></td><td></td></tr><tr><td id='variant.EBADF'><a class='stability Unmarked' title='No stability level'></a><code>EBADF</code></td><td></td></tr><tr><td id='variant.ECHILD'><a class='stability Unmarked' title='No stability level'></a><code>ECHILD</code></td><td></td></tr><tr><td id='variant.EAGAIN'><a class='stability Unmarked' title='No stability level'></a><code>EAGAIN</code></td><td></td></tr><tr><td id='variant.ENOMEM'><a class='stability Unmarked' title='No stability level'></a><code>ENOMEM</code></td><td></td></tr><tr><td id='variant.EACCES'><a class='stability Unmarked' title='No stability level'></a><code>EACCES</code></td><td></td></tr><tr><td id='variant.EFAULT'><a class='stability Unmarked' title='No stability level'></a><code>EFAULT</code></td><td></td></tr><tr><td id='variant.ENOTBLK'><a class='stability Unmarked' title='No stability level'></a><code>ENOTBLK</code></td><td></td></tr><tr><td id='variant.EBUSY'><a class='stability Unmarked' title='No stability level'></a><code>EBUSY</code></td><td></td></tr><tr><td id='variant.EEXIST'><a class='stability Unmarked' title='No stability level'></a><code>EEXIST</code></td><td></td></tr><tr><td id='variant.EXDEV'><a class='stability Unmarked' title='No stability level'></a><code>EXDEV</code></td><td></td></tr><tr><td id='variant.ENODEV'><a class='stability Unmarked' title='No stability level'></a><code>ENODEV</code></td><td></td></tr><tr><td id='variant.ENOTDIR'><a class='stability Unmarked' title='No stability level'></a><code>ENOTDIR</code></td><td></td></tr><tr><td id='variant.EISDIR'><a class='stability Unmarked' title='No stability level'></a><code>EISDIR</code></td><td></td></tr><tr><td id='variant.EINVAL'><a class='stability Unmarked' title='No stability level'></a><code>EINVAL</code></td><td></td></tr><tr><td id='variant.ENFILE'><a class='stability Unmarked' title='No stability level'></a><code>ENFILE</code></td><td></td></tr><tr><td id='variant.EMFILE'><a class='stability Unmarked' title='No stability level'></a><code>EMFILE</code></td><td></td></tr><tr><td id='variant.ENOTTY'><a class='stability Unmarked' title='No stability level'></a><code>ENOTTY</code></td><td></td></tr><tr><td id='variant.ETXTBSY'><a class='stability Unmarked' title='No stability level'></a><code>ETXTBSY</code></td><td></td></tr><tr><td id='variant.EFBIG'><a class='stability Unmarked' title='No stability level'></a><code>EFBIG</code></td><td></td></tr><tr><td id='variant.ENOSPC'><a class='stability Unmarked' title='No stability level'></a><code>ENOSPC</code></td><td></td></tr><tr><td id='variant.ESPIPE'><a class='stability Unmarked' title='No stability level'></a><code>ESPIPE</code></td><td></td></tr><tr><td id='variant.EROFS'><a class='stability Unmarked' title='No stability level'></a><code>EROFS</code></td><td></td></tr><tr><td id='variant.EMLINK'><a class='stability Unmarked' title='No stability level'></a><code>EMLINK</code></td><td></td></tr><tr><td id='variant.EPIPE'><a class='stability Unmarked' title='No stability level'></a><code>EPIPE</code></td><td></td></tr><tr><td id='variant.EDOM'><a class='stability Unmarked' title='No stability level'></a><code>EDOM</code></td><td></td></tr><tr><td id='variant.ERANGE'><a class='stability Unmarked' title='No stability level'></a><code>ERANGE</code></td><td></td></tr><tr><td id='variant.EDEADLK'><a class='stability Unmarked' title='No stability level'></a><code>EDEADLK</code></td><td></td></tr><tr><td id='variant.ENAMETOOLONG'><a class='stability Unmarked' title='No stability level'></a><code>ENAMETOOLONG</code></td><td></td></tr><tr><td id='variant.ENOLCK'><a class='stability Unmarked' title='No stability level'></a><code>ENOLCK</code></td><td></td></tr><tr><td id='variant.ENOSYS'><a class='stability Unmarked' title='No stability level'></a><code>ENOSYS</code></td><td></td></tr><tr><td id='variant.ENOTEMPTY'><a class='stability Unmarked' title='No stability level'></a><code>ENOTEMPTY</code></td><td></td></tr><tr><td id='variant.ELOOP'><a class='stability Unmarked' title='No stability level'></a><code>ELOOP</code></td><td></td></tr><tr><td id='variant.ENOMSG'><a class='stability Unmarked' title='No stability level'></a><code>ENOMSG</code></td><td></td></tr><tr><td id='variant.EIDRM'><a class='stability Unmarked' title='No stability level'></a><code>EIDRM</code></td><td></td></tr><tr><td id='variant.ECHRNG'><a class='stability Unmarked' title='No stability level'></a><code>ECHRNG</code></td><td></td></tr><tr><td id='variant.EL2NSYNC'><a class='stability Unmarked' title='No stability level'></a><code>EL2NSYNC</code></td><td></td></tr><tr><td id='variant.EL3HLT'><a class='stability Unmarked' title='No stability level'></a><code>EL3HLT</code></td><td></td></tr><tr><td id='variant.EL3RST'><a class='stability Unmarked' title='No stability level'></a><code>EL3RST</code></td><td></td></tr><tr><td id='variant.ELNRNG'><a class='stability Unmarked' title='No stability level'></a><code>ELNRNG</code></td><td></td></tr><tr><td id='variant.EUNATCH'><a class='stability Unmarked' title='No stability level'></a><code>EUNATCH</code></td><td></td></tr><tr><td id='variant.ENOCSI'><a class='stability Unmarked' title='No stability level'></a><code>ENOCSI</code></td><td></td></tr><tr><td id='variant.EL2HLT'><a class='stability Unmarked' title='No stability level'></a><code>EL2HLT</code></td><td></td></tr><tr><td id='variant.EBADE'><a class='stability Unmarked' title='No stability level'></a><code>EBADE</code></td><td></td></tr><tr><td id='variant.EBADR'><a class='stability Unmarked' title='No stability level'></a><code>EBADR</code></td><td></td></tr><tr><td id='variant.EXFULL'><a class='stability Unmarked' title='No stability level'></a><code>EXFULL</code></td><td></td></tr><tr><td id='variant.ENOANO'><a class='stability Unmarked' title='No stability level'></a><code>ENOANO</code></td><td></td></tr><tr><td id='variant.EBADRQC'><a class='stability Unmarked' title='No stability level'></a><code>EBADRQC</code></td><td></td></tr><tr><td id='variant.EBADSLT'><a class='stability Unmarked' title='No stability level'></a><code>EBADSLT</code></td><td></td></tr><tr><td id='variant.EBFONT'><a class='stability Unmarked' title='No stability level'></a><code>EBFONT</code></td><td></td></tr><tr><td id='variant.ENOSTR'><a class='stability Unmarked' title='No stability level'></a><code>ENOSTR</code></td><td></td></tr><tr><td id='variant.ENODATA'><a class='stability Unmarked' title='No stability level'></a><code>ENODATA</code></td><td></td></tr><tr><td id='variant.ETIME'><a class='stability Unmarked' title='No stability level'></a><code>ETIME</code></td><td></td></tr><tr><td id='variant.ENOSR'><a class='stability Unmarked' title='No stability level'></a><code>ENOSR</code></td><td></td></tr><tr><td id='variant.ENONET'><a class='stability Unmarked' title='No stability level'></a><code>ENONET</code></td><td></td></tr><tr><td id='variant.ENOPKG'><a class='stability Unmarked' title='No stability level'></a><code>ENOPKG</code></td><td></td></tr><tr><td id='variant.EREMOTE'><a class='stability Unmarked' title='No stability level'></a><code>EREMOTE</code></td><td></td></tr><tr><td id='variant.ENOLINK'><a class='stability Unmarked' title='No stability level'></a><code>ENOLINK</code></td><td></td></tr><tr><td id='variant.EADV'><a class='stability Unmarked' title='No stability level'></a><code>EADV</code></td><td></td></tr><tr><td id='variant.ESRMNT'><a class='stability Unmarked' title='No stability level'></a><code>ESRMNT</code></td><td></td></tr><tr><td id='variant.ECOMM'><a class='stability Unmarked' title='No stability level'></a><code>ECOMM</code></td><td></td></tr><tr><td id='variant.EPROTO'><a class='stability Unmarked' title='No stability level'></a><code>EPROTO</code></td><td></td></tr><tr><td id='variant.EMULTIHOP'><a class='stability Unmarked' title='No stability level'></a><code>EMULTIHOP</code></td><td></td></tr><tr><td id='variant.EDOTDOT'><a class='stability Unmarked' title='No stability level'></a><code>EDOTDOT</code></td><td></td></tr><tr><td id='variant.EBADMSG'><a class='stability Unmarked' title='No stability level'></a><code>EBADMSG</code></td><td></td></tr><tr><td id='variant.EOVERFLOW'><a class='stability Unmarked' title='No stability level'></a><code>EOVERFLOW</code></td><td></td></tr><tr><td id='variant.ENOTUNIQ'><a class='stability Unmarked' title='No stability level'></a><code>ENOTUNIQ</code></td><td></td></tr><tr><td id='variant.EBADFD'><a class='stability Unmarked' title='No stability level'></a><code>EBADFD</code></td><td></td></tr><tr><td id='variant.EREMCHG'><a class='stability Unmarked' title='No stability level'></a><code>EREMCHG</code></td><td></td></tr><tr><td id='variant.ELIBACC'><a class='stability Unmarked' title='No stability level'></a><code>ELIBACC</code></td><td></td></tr><tr><td id='variant.ELIBBAD'><a class='stability Unmarked' title='No stability level'></a><code>ELIBBAD</code></td><td></td></tr><tr><td id='variant.ELIBSCN'><a class='stability Unmarked' title='No stability level'></a><code>ELIBSCN</code></td><td></td></tr><tr><td id='variant.ELIBMAX'><a class='stability Unmarked' title='No stability level'></a><code>ELIBMAX</code></td><td></td></tr><tr><td id='variant.ELIBEXEC'><a class='stability Unmarked' title='No stability level'></a><code>ELIBEXEC</code></td><td></td></tr><tr><td id='variant.EILSEQ'><a class='stability Unmarked' title='No stability level'></a><code>EILSEQ</code></td><td></td></tr><tr><td id='variant.ERESTART'><a class='stability Unmarked' title='No stability level'></a><code>ERESTART</code></td><td></td></tr><tr><td id='variant.ESTRPIPE'><a class='stability Unmarked' title='No stability level'></a><code>ESTRPIPE</code></td><td></td></tr><tr><td id='variant.EUSERS'><a class='stability Unmarked' title='No stability level'></a><code>EUSERS</code></td><td></td></tr><tr><td id='variant.ENOTSOCK'><a class='stability Unmarked' title='No stability level'></a><code>ENOTSOCK</code></td><td></td></tr><tr><td id='variant.EDESTADDRREQ'><a class='stability Unmarked' title='No stability level'></a><code>EDESTADDRREQ</code></td><td></td></tr><tr><td id='variant.EMSGSIZE'><a class='stability Unmarked' title='No stability level'></a><code>EMSGSIZE</code></td><td></td></tr><tr><td id='variant.EPROTOTYPE'><a class='stability Unmarked' title='No stability level'></a><code>EPROTOTYPE</code></td><td></td></tr><tr><td id='variant.ENOPROTOOPT'><a class='stability Unmarked' title='No stability level'></a><code>ENOPROTOOPT</code></td><td></td></tr><tr><td id='variant.EPROTONOSUPPORT'><a class='stability Unmarked' title='No stability level'></a><code>EPROTONOSUPPORT</code></td><td></td></tr><tr><td id='variant.ESOCKTNOSUPPORT'><a class='stability Unmarked' title='No stability level'></a><code>ESOCKTNOSUPPORT</code></td><td></td></tr><tr><td id='variant.EOPNOTSUPP'><a class='stability Unmarked' title='No stability level'></a><code>EOPNOTSUPP</code></td><td></td></tr><tr><td id='variant.EPFNOSUPPORT'><a class='stability Unmarked' title='No stability level'></a><code>EPFNOSUPPORT</code></td><td></td></tr><tr><td id='variant.EAFNOSUPPORT'><a class='stability Unmarked' title='No stability level'></a><code>EAFNOSUPPORT</code></td><td></td></tr><tr><td id='variant.EADDRINUSE'><a class='stability Unmarked' title='No stability level'></a><code>EADDRINUSE</code></td><td></td></tr><tr><td id='variant.EADDRNOTAVAIL'><a class='stability Unmarked' title='No stability level'></a><code>EADDRNOTAVAIL</code></td><td></td></tr><tr><td id='variant.ENETDOWN'><a class='stability Unmarked' title='No stability level'></a><code>ENETDOWN</code></td><td></td></tr><tr><td id='variant.ENETUNREACH'><a class='stability Unmarked' title='No stability level'></a><code>ENETUNREACH</code></td><td></td></tr><tr><td id='variant.ENETRESET'><a class='stability Unmarked' title='No stability level'></a><code>ENETRESET</code></td><td></td></tr><tr><td id='variant.ECONNABORTED'><a class='stability Unmarked' title='No stability level'></a><code>ECONNABORTED</code></td><td></td></tr><tr><td id='variant.ECONNRESET'><a class='stability Unmarked' title='No stability level'></a><code>ECONNRESET</code></td><td></td></tr><tr><td id='variant.ENOBUFS'><a class='stability Unmarked' title='No stability level'></a><code>ENOBUFS</code></td><td></td></tr><tr><td id='variant.EISCONN'><a class='stability Unmarked' title='No stability level'></a><code>EISCONN</code></td><td></td></tr><tr><td id='variant.ENOTCONN'><a class='stability Unmarked' title='No stability level'></a><code>ENOTCONN</code></td><td></td></tr><tr><td id='variant.ESHUTDOWN'><a class='stability Unmarked' title='No stability level'></a><code>ESHUTDOWN</code></td><td></td></tr><tr><td id='variant.ETOOMANYREFS'><a class='stability Unmarked' title='No stability level'></a><code>ETOOMANYREFS</code></td><td></td></tr><tr><td id='variant.ETIMEDOUT'><a class='stability Unmarked' title='No stability level'></a><code>ETIMEDOUT</code></td><td></td></tr><tr><td id='variant.ECONNREFUSED'><a class='stability Unmarked' title='No stability level'></a><code>ECONNREFUSED</code></td><td></td></tr><tr><td id='variant.EHOSTDOWN'><a class='stability Unmarked' title='No stability level'></a><code>EHOSTDOWN</code></td><td></td></tr><tr><td id='variant.EHOSTUNREACH'><a class='stability Unmarked' title='No stability level'></a><code>EHOSTUNREACH</code></td><td></td></tr><tr><td id='variant.EALREADY'><a class='stability Unmarked' title='No stability level'></a><code>EALREADY</code></td><td></td></tr><tr><td id='variant.EINPROGRESS'><a class='stability Unmarked' title='No stability level'></a><code>EINPROGRESS</code></td><td></td></tr><tr><td id='variant.ESTALE'><a class='stability Unmarked' title='No stability level'></a><code>ESTALE</code></td><td></td></tr><tr><td id='variant.EUCLEAN'><a class='stability Unmarked' title='No stability level'></a><code>EUCLEAN</code></td><td></td></tr><tr><td id='variant.ENOTNAM'><a class='stability Unmarked' title='No stability level'></a><code>ENOTNAM</code></td><td></td></tr><tr><td id='variant.ENAVAIL'><a class='stability Unmarked' title='No stability level'></a><code>ENAVAIL</code></td><td></td></tr><tr><td id='variant.EISNAM'><a class='stability Unmarked' title='No stability level'></a><code>EISNAM</code></td><td></td></tr><tr><td id='variant.EREMOTEIO'><a class='stability Unmarked' title='No stability level'></a><code>EREMOTEIO</code></td><td></td></tr><tr><td id='variant.EDQUOT'><a class='stability Unmarked' title='No stability level'></a><code>EDQUOT</code></td><td></td></tr><tr><td id='variant.ENOMEDIUM'><a class='stability Unmarked' title='No stability level'></a><code>ENOMEDIUM</code></td><td></td></tr><tr><td id='variant.EMEDIUMTYPE'><a class='stability Unmarked' title='No stability level'></a><code>EMEDIUMTYPE</code></td><td></td></tr><tr><td id='variant.ECANCELED'><a class='stability Unmarked' title='No stability level'></a><code>ECANCELED</code></td><td></td></tr><tr><td id='variant.ENOKEY'><a class='stability Unmarked' title='No stability level'></a><code>ENOKEY</code></td><td></td></tr><tr><td id='variant.EKEYEXPIRED'><a class='stability Unmarked' title='No stability level'></a><code>EKEYEXPIRED</code></td><td></td></tr><tr><td id='variant.EKEYREVOKED'><a class='stability Unmarked' title='No stability level'></a><code>EKEYREVOKED</code></td><td></td></tr><tr><td id='variant.EKEYREJECTED'><a class='stability Unmarked' title='No stability level'></a><code>EKEYREJECTED</code></td><td></td></tr><tr><td id='variant.EOWNERDEAD'><a class='stability Unmarked' title='No stability level'></a><code>EOWNERDEAD</code></td><td></td></tr><tr><td id='variant.ENOTRECOVERABLE'><a class='stability Unmarked' title='No stability level'></a><code>ENOTRECOVERABLE</code></td><td></td></tr><tr><td id='variant.ERFKILL'><a class='stability Unmarked' title='No stability level'></a><code>ERFKILL</code></td><td></td></tr><tr><td id='variant.EHWPOISON'><a class='stability Unmarked' title='No stability level'></a><code>EHWPOISON</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.last' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.last' class='fnname'>last</a>() -&gt; <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h4>
+<h4 id='method.desc' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.desc' class='fnname'>desc</a>(self) -&gt; &amp;'static <a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.last' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.last' class='fnname'>last</a>() -&gt; <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h4>
+<h4 id='method.desc' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.desc' class='fnname'>desc</a>(self) -&gt; &amp;'static <a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/num/trait.FromPrimitive.html' title='core::num::FromPrimitive'>FromPrimitive</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.from_i64' class='method'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#method.from_i64' class='fnname'>from_i64</a>(__arg_0: <a href='http://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>&gt;</code></h4>
+<h4 id='method.from_u64' class='method'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#method.from_u64' class='fnname'>from_u64</a>(__arg_0: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>&gt;</code></h4>
+<h4 id='method.from_int' class='tymethod'><a class='stability Deprecated' title='Deprecated: use from_isize'></a><code>fn <a href='#tymethod.from_int' class='fnname'>from_int</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_isize' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_isize' class='fnname'>from_isize</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i8' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i8' class='fnname'>from_i8</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i8.html'>i8</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i16' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i16' class='fnname'>from_i16</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i32' class='fnname'>from_i32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_uint' class='tymethod'><a class='stability Deprecated' title='Deprecated: use from_usize'></a><code>fn <a href='#tymethod.from_uint' class='fnname'>from_uint</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_usize' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_usize' class='fnname'>from_usize</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u8' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u8' class='fnname'>from_u8</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u16' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u16' class='fnname'>from_u16</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u32' class='fnname'>from_u32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_f32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_f32' class='fnname'>from_f32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_f64' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_f64' class='fnname'>from_f64</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function is rarely used'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/num/trait.FromPrimitive.html' title='core::num::FromPrimitive'>FromPrimitive</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.from_i64' class='method'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#method.from_i64' class='fnname'>from_i64</a>(__arg_0: <a href='http://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>&gt;</code></h4>
+<h4 id='method.from_u64' class='method'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#method.from_u64' class='fnname'>from_u64</a>(__arg_0: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>&gt;</code></h4>
+<h4 id='method.from_int' class='tymethod'><a class='stability Deprecated' title='Deprecated: use from_isize'></a><code>fn <a href='#tymethod.from_int' class='fnname'>from_int</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_isize' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_isize' class='fnname'>from_isize</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i8' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i8' class='fnname'>from_i8</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i8.html'>i8</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i16' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i16' class='fnname'>from_i16</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_i32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_i32' class='fnname'>from_i32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_uint' class='tymethod'><a class='stability Deprecated' title='Deprecated: use from_usize'></a><code>fn <a href='#tymethod.from_uint' class='fnname'>from_uint</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_usize' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_usize' class='fnname'>from_usize</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u8' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u8' class='fnname'>from_u8</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u16' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u16' class='fnname'>from_u16</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_u32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_u32' class='fnname'>from_u32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_f32' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_f32' class='fnname'>from_f32</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+<h4 id='method.from_f64' class='tymethod'><a class='stability Unstable' title='Unstable: trait is likely to be removed'></a><code>fn <a href='#tymethod.from_f64' class='fnname'>from_f64</a>(n: <a href='http://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function is rarely used'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../nix/errno/enum.Errno.html' title='nix::errno::Errno'>Errno</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "nix";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

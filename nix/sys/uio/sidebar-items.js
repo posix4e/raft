@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["IoVec",""]],"fn":[["readv",""],["writev",""]]});

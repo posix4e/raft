@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["OwnedSpaceMessageReader",""]],"fn":[["new_reader",""],["write_message",""]]});

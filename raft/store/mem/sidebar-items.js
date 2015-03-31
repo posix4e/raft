@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MemStore","This is a `Store` implementation that stores entries in a simple in-memory vector. Other data is stored in a struct. It is chiefly intended for testing."]],"enum":[["Error","Non-instantiable error type for MemStore"]]});

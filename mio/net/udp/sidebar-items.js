@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["bind","Returns a new, non-blocking, UDP socket bound to the given address"],["v4","Returns a new, unbound, non-blocking, IPv4 UDP socket"],["v6","Returns a new, unbound, non-blocking, IPv6 UDP socket"]],"struct":[["UdpSocket","A User Datagram Protocol socket."]]});

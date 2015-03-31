@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `InetAddr` enum in crate `nix`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, InetAddr">
+
+    <title>nix::sys::socket::InetAddr - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>nix</a>::<wbr><a href='../index.html'>sys</a>::<wbr><a href='index.html'>socket</a></p><script>window.sidebarCurrent = {name: 'InetAddr', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>nix</a>::<wbr><a href='../index.html'>sys</a>::<wbr><a href='index.html'>socket</a>::<wbr><a class='enum' href=''>InetAddr</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-15258' href='../../../src/nix/sys/socket/addr.rs.html#28-31'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum InetAddr {
+    V4(<a class='struct' href='../../../nix/sys/socket/struct.sockaddr_in.html' title='nix::sys::socket::sockaddr_in'>sockaddr_in</a>),
+    V6(<a class='struct' href='../../../nix/sys/socket/struct.sockaddr_in6.html' title='nix::sys::socket::sockaddr_in6'>sockaddr_in6</a>),
+}</pre><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.V4'><a class='stability Unmarked' title='No stability level'></a><code>V4</code></td><td></td></tr><tr><td id='variant.V6'><a class='stability Unmarked' title='No stability level'></a><code>V6</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.from_std' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_std' class='fnname'>from_std</a>(std: &amp;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>) -&gt; <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h4>
+<h4 id='method.new' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.new' class='fnname'>new</a>(ip: <a class='enum' href='../../../nix/sys/socket/enum.IpAddr.html' title='nix::sys::socket::IpAddr'>IpAddr</a>, port: <a href='http://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>) -&gt; <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h4>
+<h4 id='method.ip' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.ip' class='fnname'>ip</a>(&amp;self) -&gt; <a class='enum' href='../../../nix/sys/socket/enum.IpAddr.html' title='nix::sys::socket::IpAddr'>IpAddr</a></code></h4>
+<div class='docblock'><p>Gets the IP address associated with this socket address.</p>
+</div><h4 id='method.port' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.port' class='fnname'>port</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a></code></h4>
+<div class='docblock'><p>Gets the port number associated with this socket address</p>
+</div><h4 id='method.to_std' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.to_std' class='fnname'>to_std</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a></code></h4>
+<h4 id='method.to_str' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.to_str' class='fnname'>to_str</a>(&amp;self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, other: &amp;<a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.assert_receiver_is_total_eq' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.assert_receiver_is_total_eq' class='fnname'>assert_receiver_is_total_eq</a>(&amp;self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/hash/trait.Hash.html' title='core::hash::Hash'>Hash</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.hash' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.hash' class='fnname'>hash</a>&lt;H: <a class='trait' href='http://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html' title='core::hash::Hasher'>Hasher</a>&gt;(&amp;self, s: &amp;mut H)</code></h4>
+<h4 id='method.hash_slice' class='tymethod'><a class='stability Unstable' title='Unstable: module was recently redesigned'></a><code>fn <a href='#tymethod.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[Self]</a>, state: &amp;mut H) <span class='where'>where H: <a class='trait' href='http://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html' title='core::hash::Hasher'>Hasher</a></span></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function is rarely used'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../nix/sys/socket/enum.InetAddr.html' title='nix::sys::socket::InetAddr'>InetAddr</a></code></h3><div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "nix";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

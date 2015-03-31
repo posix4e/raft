@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `UdpSocket` struct in crate `mio`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, UdpSocket">
+
+    <title>mio::udp::UdpSocket - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>mio</a>::<wbr><a href='index.html'>udp</a></p><script>window.sidebarCurrent = {name: 'UdpSocket', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>mio</a>::<wbr><a href='index.html'>udp</a>::<wbr><a class='struct' href=''>UdpSocket</a><wbr><a class='stability Stable' title=''>Stable</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-38138' href='http://doc.rust-lang.org/nightly/std/net/udp/struct.UdpSocket.html?gotosrc=38138'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct UdpSocket(_);</pre><div class='docblock'><p>A User Datagram Protocol socket.</p>
+
+<p>This is an implementation of a bound UDP socket. This supports both IPv4 and
+IPv6 addresses, and there is no corresponding notion of a server because UDP
+is a datagram protocol.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><pre id='rust-example-rendered' class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>UdpSocket</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>socket</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>UdpSocket</span>::<span class='ident'>bind</span>(<span class='string'>&quot;127.0.0.1:34254&quot;</span>));
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buf</span> <span class='op'>=</span> [<span class='number'>0</span>; <span class='number'>10</span>];
+<span class='kw'>let</span> (<span class='ident'>amt</span>, <span class='ident'>src</span>) <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>socket</span>.<span class='ident'>recv_from</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buf</span>));
+
+<span class='comment'>// Send a reply to the socket we received data from</span>
+<span class='kw'>let</span> <span class='ident'>buf</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buf</span>[..<span class='ident'>amt</span>];
+<span class='ident'>buf</span>.<span class='ident'>reverse</span>();
+<span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>socket</span>.<span class='ident'>send_to</span>(<span class='ident'>buf</span>, <span class='kw-2'>&amp;</span><span class='ident'>src</span>));
+
+<span class='ident'>drop</span>(<span class='ident'>socket</span>); <span class='comment'>// close the socket</span>
+</pre>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>impl <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.bind' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.bind' class='fnname'>bind</a>&lt;A&gt;(addr: A) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt; <span class='where'>where A: <a class='trait' href='http://doc.rust-lang.org/nightly/std/net/addr/trait.ToSocketAddrs.html' title='std::net::addr::ToSocketAddrs'>ToSocketAddrs</a></span></code></h4>
+<div class='docblock'><p>Creates a UDP socket from the given address.</p>
+
+<p>Address type can be any implementor of <code>ToSocketAddr</code> trait. See its
+documentation for concrete examples.</p>
+</div><h4 id='method.recv_from' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.recv_from' class='fnname'>recv_from</a>(&amp;self, buf: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>)</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Receives data from the socket. On success, returns the number of bytes
+read and the address from whence the data came.</p>
+</div><h4 id='method.send_to' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.send_to' class='fnname'>send_to</a>&lt;A&gt;(&amp;self, buf: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, addr: A) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt; <span class='where'>where A: <a class='trait' href='http://doc.rust-lang.org/nightly/std/net/addr/trait.ToSocketAddrs.html' title='std::net::addr::ToSocketAddrs'>ToSocketAddrs</a></span></code></h4>
+<div class='docblock'><p>Sends data on the socket to the given address. Returns nothing on
+success.</p>
+
+<p>Address type can be any implementor of <code>ToSocketAddrs</code> trait. See its
+documentation for concrete examples.</p>
+</div><h4 id='method.socket_addr' class='method'><a class='stability Deprecated' title='Deprecated: renamed to local_addr'></a><code>fn <a href='#method.socket_addr' class='fnname'>socket_addr</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the socket address that this socket was created from.</p>
+</div><h4 id='method.local_addr' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.local_addr' class='fnname'>local_addr</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the socket address that this socket was created from.</p>
+</div><h4 id='method.try_clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.try_clone' class='fnname'>try_clone</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new independently owned handle to the underlying socket.</p>
+
+<p>The returned <code>UdpSocket</code> is a reference to the same socket that this
+object references. Both handles will read and write the same port, and
+options set on one socket will be propagated to the other.</p>
+</div><h4 id='method.set_broadcast' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_broadcast' class='fnname'>set_broadcast</a>(&amp;self, on: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the broadcast flag on or off</p>
+</div><h4 id='method.set_multicast_loop' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_multicast_loop' class='fnname'>set_multicast_loop</a>(&amp;self, on: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Set the multicast loop flag to the specified value</p>
+
+<p>This lets multicast packets loop back to local sockets (if enabled)</p>
+</div><h4 id='method.join_multicast' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.join_multicast' class='fnname'>join_multicast</a>(&amp;self, multi: &amp;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/ip/enum.IpAddr.html' title='std::net::ip::IpAddr'>IpAddr</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Joins a multicast IP address (becomes a member of it)</p>
+</div><h4 id='method.leave_multicast' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.leave_multicast' class='fnname'>leave_multicast</a>(&amp;self, multi: &amp;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/ip/enum.IpAddr.html' title='std::net::ip::IpAddr'>IpAddr</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Leaves a multicast IP address (drops membership from it)</p>
+</div><h4 id='method.set_multicast_time_to_live' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_multicast_time_to_live' class='fnname'>set_multicast_time_to_live</a>(&amp;self, ttl: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Sets the multicast TTL</p>
+</div><h4 id='method.set_time_to_live' class='method'><a class='stability Unstable' title='Unstable: remaining functions have not been scrutinized enough to be stabilized'></a><code>fn <a href='#method.set_time_to_live' class='fnname'>set_time_to_live</a>(&amp;self, ttl: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='../../std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Sets this socket&#39;s TTL</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Unstable' title='Unstable: may want a slightly different organization or a more general file descriptor primitive'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><a class='stability Unstable' title='Unstable: may want a slightly different organization or a more general file descriptor primitive'></a><code>fn <a href='#method.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Evented.html' title='mio::Evented'>Evented</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.FromFd.html' title='mio::FromFd'>FromFd</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.from_fd' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_fd' class='fnname'>from_fd</a>(fd: <a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.Fd.html' title='std::sys::ext::io::Fd'>Fd</a>) -&gt; <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Socket.html' title='mio::Socket'>Socket</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.linger' class='fnname'>linger</a>(&amp;self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
+<h4 id='method.set_linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_linger' class='fnname'>set_linger</a>(&amp;self, dur_s: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseaddr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseaddr' class='fnname'>set_reuseaddr</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseport' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseport' class='fnname'>set_reuseport</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_tcp_nodelay' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_read_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_read_timeout_ms' class='fnname'>set_read_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_write_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_write_timeout_ms' class='fnname'>set_write_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.IntoNonBlock.html' title='mio::IntoNonBlock'>IntoNonBlock</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.into_non_block' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.into_non_block' class='fnname'>into_non_block</a>(self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../../mio/struct.NonBlock.html' title='mio::NonBlock'>NonBlock</a>&lt;<a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a>&gt;&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Evented.html' title='mio::Evented'>Evented</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.FromFd.html' title='mio::FromFd'>FromFd</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.from_fd' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_fd' class='fnname'>from_fd</a>(fd: <a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.Fd.html' title='std::sys::ext::io::Fd'>Fd</a>) -&gt; <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.Socket.html' title='mio::Socket'>Socket</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.linger' class='fnname'>linger</a>(&amp;self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
+<h4 id='method.set_linger' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_linger' class='fnname'>set_linger</a>(&amp;self, dur_s: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseaddr' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseaddr' class='fnname'>set_reuseaddr</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_reuseport' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_reuseport' class='fnname'>set_reuseport</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_tcp_nodelay' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_read_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_read_timeout_ms' class='fnname'>set_read_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.set_write_timeout_ms' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_write_timeout_ms' class='fnname'>set_write_timeout_ms</a>(&amp;self, val: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../mio/trait.IntoNonBlock.html' title='mio::IntoNonBlock'>IntoNonBlock</a> for <a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a></code></h3><div class='impl-items'><h4 id='method.into_non_block' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.into_non_block' class='fnname'>into_non_block</a>(self) -&gt; <a class='type' href='../../std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../../mio/struct.NonBlock.html' title='mio::NonBlock'>NonBlock</a>&lt;<a class='struct' href='../../mio/udp/struct.UdpSocket.html' title='mio::udp::UdpSocket'>UdpSocket</a>&gt;&gt;</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "mio";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

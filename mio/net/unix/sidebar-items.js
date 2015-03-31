@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["bind",""],["connect",""],["stream",""]],"struct":[["Incoming","An iterator over incoming connections to a `UnixListener`."],["UnixListener",""],["UnixSocket",""],["UnixStream",""]]});

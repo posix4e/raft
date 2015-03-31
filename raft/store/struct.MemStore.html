@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `MemStore` struct in crate `raft`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, MemStore">
+
+    <title>raft::store::MemStore - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../raft/index.html'><img src='https://raw.githubusercontent.com/Hoverbear/raft/master/raft.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>raft</a>::<wbr><a href='index.html'>store</a></p><script>window.sidebarCurrent = {name: 'MemStore', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>raft</a>::<wbr><a href='index.html'>store</a>::<wbr><a class='struct' href=''>MemStore</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-299' href='../../src/raft/store/mem.rs.html#12-16'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct MemStore {
+    // some fields omitted
+}</pre><div class='docblock'><p>This is a <code>Store</code> implementation that stores entries in a simple in-memory vector. Other data
+is stored in a struct. It is chiefly intended for testing.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../../raft/store/trait.Store.html' title='raft::store::Store'>Store</a> for <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h3><div class='impl-items'><h4 id='assoc_type.Error' class='type'><a class='stability Unmarked' title='No stability level'></a><code>type Error = <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a></code></h4>
+<h4 id='method.current_term' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.current_term' class='fnname'>current_term</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.set_current_term' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_current_term' class='fnname'>set_current_term</a>(&amp;mut self, term: <a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.inc_current_term' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.inc_current_term' class='fnname'>inc_current_term</a>(&amp;mut self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.voted_for' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.voted_for' class='fnname'>voted_for</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>&gt;, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.set_voted_for' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_voted_for' class='fnname'>set_voted_for</a>(&amp;mut self, address: <a class='enum' href='http://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.latest_log_index' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.latest_log_index' class='fnname'>latest_log_index</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../raft/struct.LogIndex.html' title='raft::LogIndex'>LogIndex</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.latest_log_term' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.latest_log_term' class='fnname'>latest_log_term</a>(&amp;self) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.entry' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.entry' class='fnname'>entry</a>(&amp;self, index: <a class='struct' href='../../raft/struct.LogIndex.html' title='raft::LogIndex'>LogIndex</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>, <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.append_entries' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.append_entries' class='fnname'>append_entries</a>(&amp;mut self, from: <a class='struct' href='../../raft/struct.LogIndex.html' title='raft::LogIndex'>LogIndex</a>, entries: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a class='struct' href='../../raft/struct.Term.html' title='raft::Term'>Term</a>, <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../raft/store/enum.Error.html' title='raft::store::Error'>Error</a>&gt;</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../raft/store/struct.MemStore.html' title='raft::store::MemStore'>MemStore</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function is rarely used'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "raft";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"name":"raft","counts":{"deprecated":0,"unstable":4,"stable":32,"unmarked":53},"submodules":[{"name":"state_machine","counts":{"deprecated":0,"unstable":0,"stable":2,"unmarked":12},"submodules":[]},{"name":"store","counts":{"deprecated":0,"unstable":0,"stable":5,"unmarked":17},"submodules":[]}]}

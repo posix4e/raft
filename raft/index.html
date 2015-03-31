@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `raft` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, raft">
+
+    <title>raft - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../raft/index.html'><img src='https://raw.githubusercontent.com/Hoverbear/raft/master/raft.png' alt='' width='100'></a>
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'raft', ty: 'mod', relpath: '../'};</script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>raft</a><wbr></span><span class='out-of-band'><a href='stability.html'>[stability]</a> <span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-0' href='../src/raft/lib.rs.html#1-306'>[src]</a></span></h1>
+<div class='docblock'><p>This is the Raft Distributed Consensus Protocol implemented for Rust.
+<a href="http://raftconsensus.github.io/">Raft</a> is described as:</p>
+
+<blockquote>
+<p>Raft is a consensus algorithm that is designed to be easy to understand. It&#39;s equivalent to
+Paxos in fault-tolerance and performance. The difference is that it&#39;s decomposed into
+relatively independent subproblems, and it cleanly addresses all major pieces needed for
+practical systems.</p>
+</blockquote>
+
+<p>This implementation utilizes <a href="https://kentonv.github.io/capnproto/">Cap&#39;n Proto</a> for its RPC,
+<a href="https://github.com/carllerche/mio"><code>mio</code></a> for it&#39;s async event loop.</p>
+
+<p>If this package fails to build for you it is possibly because you do not have the
+<a href="https://capnproto.org/capnp-tool.html"><code>capnp</code></a> utility installed. You should be able to find
+appropriate packages for most popular distributions.</p>
+
+<h1 id="consuming-this-library" class='section-header'><a
+                           href="#consuming-this-library">Consuming this library</a></h1>
+<p>Consuming this library works in a few parts:</p>
+
+<ol>
+<li>Implement <code>Store</code> and <code>StateMachine</code> such that they will hook into your application.</li>
+<li>Create a <code>Raft</code> with those impls which will spawn it&#39;s own <code>Server</code> and join with a cluster.</li>
+<li>Interact with the cluster by issuing <code>append()</code> calls.</li>
+<li>React to calls to <code>apply()</code> from the implemented <code>StateMachine</code></li>
+</ol>
+
+<p>It&#39;s important to note that issuing an <code>append()</code> call to <code>Raft</code> does not (at this time)
+necessarily gaurantee that the entry has been applied to the <code>StateMachine</code>, since it must be
+successfully replicated across a majority of nodes before it is applied.</p>
+
+<h2 id="state" class='section-header'><a
+                           href="#state">State</a></h2><pre id='rust-example-rendered' class='rust '>
+<span class='comment'>// TODO</span>
+</pre>
+
+<h2 id="statemachine" class='section-header'><a
+                           href="#statemachine">StateMachine</a></h2><pre id='rust-example-rendered' class='rust '>
+<span class='comment'>// TODO</span>
+</pre>
+
+<h2 id="client-requests" class='section-header'><a
+                           href="#client-requests">Client Requests</a></h2><pre id='rust-example-rendered' class='rust '>
+<span class='comment'>// TODO</span>
+</pre>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='mod' href='state_machine/index.html'
+                               title='raft::state_machine'>state_machine</a></td>
+                        <td class='docblock short'><p>The state machine which Raft applied commited entries too.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='mod' href='store/index.html'
+                               title='raft::store'>store</a></td>
+                        <td class='docblock short'><p>The persistent storage of Raft state.</p>
+</td>
+                    </tr>
+                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.LogIndex.html'
+                               title='raft::LogIndex'>LogIndex</a></td>
+                        <td class='docblock short'><p>The index of a log entry.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.Raft.html'
+                               title='raft::Raft'>Raft</a></td>
+                        <td class='docblock short'><p>This is the primary interface with a <code>Server</code> in the cluster.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.Term.html'
+                               title='raft::Term'>Term</a></td>
+                        <td class='docblock short'><p>The term of a log entry.</p>
+</td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.Error.html'
+                               title='raft::Error'>Error</a></td>
+                        <td class='docblock short'><p>raft::Errors are the composed variety of errors that can originate from the various libraries.
+With the exception of the <code>Raft</code> variant these are generated from <code>try!()</code> macros invoking
+on <code>io::Error</code> or <code>capnp::Error</code> by using
+<a href="https://doc.rust-lang.org/std/error/#the-fromerror-trait"><code>FromError</code></a>.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.ErrorKind.html'
+                               title='raft::ErrorKind'>ErrorKind</a></td>
+                        <td class='docblock short'><p>Currently, this can only be:</p>
+</td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.Result.html'
+                               title='raft::Result'>Result</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "raft";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Rope` struct in crate `bytes`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Rope">
+
+    <title>bytes::Rope - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>bytes</a></p><script>window.sidebarCurrent = {name: 'Rope', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>bytes</a>::<wbr><a class='struct' href=''>Rope</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-3426' href='../src/bytes/rope.rs.html#40-42'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Rope {
+    // some fields omitted
+}</pre><div class='docblock'><p>An immutable sequence of bytes formed by concatenation of other <code>ByteStr</code>
+values, without copying the data in the pieces. The concatenation is
+represented as a tree whose leaf nodes are each a <code>Bytes</code> value.</p>
+
+<p>Most of the operation here is inspired by the now-famous paper <a href="http://www.cs.rit.edu/usr/local/pub/jeh/courses/QUARTERS/FP/Labs/CedarRope/rope-paper.pdf">Ropes: an
+Alternative to Strings. hans-j. boehm, russ atkinson and michael
+plass</a>.</p>
+
+<p>Fundamentally the Rope algorithm represents the collection of pieces as a
+binary tree. BAP95 uses a Fibonacci bound relating depth to a minimum
+sequence length, sequences that are too short relative to their depth cause
+a tree rebalance.  More precisely, a tree of depth d is &quot;balanced&quot; in the
+terminology of BAP95 if its length is at least F(d+2), where F(n) is the
+n-the Fibonacci number. Thus for depths 0, 1, 2, 3, 4, 5,... we have
+minimum lengths 1, 2, 3, 5, 8, 13,...</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h3><div class='impl-items'><h4 id='method.from_slice' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.from_slice' class='fnname'>from_slice</a>(bytes: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h4>
+<h4 id='method.of' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.of' class='fnname'>of</a>&lt;B: <a class='trait' href='../bytes/trait.ByteStr.html' title='bytes::ByteStr'>ByteStr</a> + 'static&gt;(bytes: B) -&gt; <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h4>
+<div class='docblock'><p>Returns a Rope consisting of the supplied Bytes as a single segment.</p>
+</div><h4 id='method.len' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.is_empty' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../bytes/trait.ByteStr.html' title='bytes::ByteStr'>ByteStr</a> for <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h3><div class='impl-items'><h4 id='assoc_type.Buf' class='type'><a class='stability Unmarked' title='No stability level'></a><code>type Buf = <a class='struct' href='../bytes/struct.RopeBuf.html' title='bytes::RopeBuf'>RopeBuf</a></code></h4>
+<h4 id='method.buf' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.buf' class='fnname'>buf</a>(&amp;self) -&gt; <a class='struct' href='../bytes/struct.RopeBuf.html' title='bytes::RopeBuf'>RopeBuf</a></code></h4>
+<h4 id='method.concat' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.concat' class='fnname'>concat</a>&lt;B: <a class='trait' href='../bytes/trait.ByteStr.html' title='bytes::ByteStr'>ByteStr</a> + 'static&gt;(&amp;self, other: &amp;B) -&gt; <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a></code></h4>
+<h4 id='method.len' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.slice' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.slice' class='fnname'>slice</a>(&amp;self, begin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, end: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a></code></h4>
+<h4 id='method.is_empty' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.slice_from' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.slice_from' class='fnname'>slice_from</a>(&amp;self, begin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a></code></h4>
+<h4 id='method.slice_to' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.slice_to' class='fnname'>slice_to</a>(&amp;self, end: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a></code></h4>
+<h4 id='method.split_at' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.split_at' class='fnname'>split_at</a>(&amp;self, mid: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a>, <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a>)</a></code></h4>
+</div><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='trait' href='../bytes/trait.ToBytes.html' title='bytes::ToBytes'>ToBytes</a> for <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h3><div class='impl-items'><h4 id='method.to_bytes' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.to_bytes' class='fnname'>to_bytes</a>(self) -&gt; <a class='struct' href='../bytes/struct.Bytes.html' title='bytes::Bytes'>Bytes</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Index.html' title='core::ops::Index'>Index</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; for <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><a class='stability Unmarked' title='No stability level'></a><code>type Output = <a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></h4>
+<h4 id='method.index' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.index' class='fnname'>index</a>(&amp;self, index: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../bytes/struct.Rope.html' title='bytes::Rope'>Rope</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Unstable' title='Unstable: this function is rarely used'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "bytes";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>
