@@ -39,6 +39,13 @@ sudo make install
 
 Finally, clone the repository and build it:
 
+If you get the error thread '<main>' panicked at 'called `Result::unwrap()` on an `Err` value: Io(Error { repr: Os(2) })', /home/posix4e/projects/rust/src/libcore/result.rs:729
+You will need to install capnproto:
+
+```bash
+sudo apt-get install capnproto
+```
+
 ```bash
 git clone git@github.com:Hoverbear/raft.git && \
 cd raft && \
